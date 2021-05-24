@@ -1,37 +1,37 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
     path: '*',
-    redirect: '/welcome'
+    redirect: '/welcome',
   },
   {
     path: '/welcome',
     component: () => import('../views/Welcome.vue'),
   },
   {
-    path: '/home',
-    component: () => import('../views/Home.vue'),
+    path: '/black',
+    component: () => import('../views/Black.vue'),
   },
   {
     path: '/team',
     name: 'team',
     component: () => import('../views/Team.vue'),
 
-      // component: Team
-  }
-]
+    // component: Team
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',
   // base: process.env.BASE_URL,
   routes,
-   scrollBehavior (to, from, savedPosition) {
-     return { x: 0, y: 0 }
-   }
-})
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  },
+});
 
-export default router
+export default router;
