@@ -21,9 +21,6 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    blacked(state) {
-      state.blacklist = true;
-    },
     setBlacklist(state, teamId) {
       const teamMember = state.teamList.find(team => {
         return team.id == teamId;
@@ -34,7 +31,15 @@ export default new Vuex.Store({
   },
   getters: {
     myBlackList(state) {
-      return state.listed;
+      if (state.listed.lenght !== 0) {
+        const toRemove = state.listed.map(team => team.id);
+        const restList = state.teamList.filter(
+          team => toRemove.indexOf(team.id) === -1
+        );
+        return (state.listed = restList);
+      } else {
+        return state.listed;
+      }
     },
   },
   actions: {
