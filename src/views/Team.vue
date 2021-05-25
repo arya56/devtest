@@ -31,17 +31,15 @@
                 id="person.id"
                 :value="person"
                 v-model="listed"
-                @change="selected_checkboxes(person)"
               />
-              <!--  -->
             </v-responsive>
           </v-card>
         </v-flex>
       </v-layout>
+      <v-btn depressed elevation="2" large outlined text @click="goToBlack"
+        >Remove</v-btn
+      >
     </v-container>
-    <v-btn depressed elevation="2" large outlined text @click="goToBlack"
-      >Remove</v-btn
-    >
   </div>
 </template>
 
@@ -72,11 +70,6 @@ export default {
   },
 
   methods: {
-    selected_checkboxes(p) {
-      // this.$store.state.listed.push( this.$store.state.teamList.splice(this.$store.state.teamList.indexOf(p),1))
-    },
-    //  setBlacklist(person){
-    //     this.$store.dispatch('setBlack',person.id)
     goToBlack() {
       this.$router.push('/black');
     },
